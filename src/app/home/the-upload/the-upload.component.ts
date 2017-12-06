@@ -21,7 +21,7 @@ export class TheUploadComponent implements OnInit {
   constructor(private ProjectService: ProjectService) {
     this.ProjectService.emitContractMsg.subscribe((res)=>{
       this.updatedData = res;
-      console.log(this.updatedData);
+      // console.log(this.updatedData);
       this.display= true;
       $("#exampleModal1").modal('show');
     });
@@ -30,8 +30,8 @@ export class TheUploadComponent implements OnInit {
       this.contractHistory = res.contract;
       this.trackerHistory = res.tracker;
 
-      console.log(this.contractHistory);
-      console.log(this.trackerHistory);
+      // console.log(this.contractHistory);
+      // console.log(this.trackerHistory);
     });
 
   }
@@ -42,7 +42,7 @@ export class TheUploadComponent implements OnInit {
 
   updateContract($event) {
     this.updateFlag = true;
-    console.log('1');
+    // console.log('1');
     this.flag=1;
     this.formData.delete('file');
     this.files = $event.target.files || $event.srcElement.files;
@@ -58,7 +58,7 @@ export class TheUploadComponent implements OnInit {
 
   updateTracker($event) {
     this.updateFlag = true;
-    console.log('2');
+    // console.log('2');
     this.flag=2;
     this.formData.delete('file');
     this.files = $event.target.files || $event.srcElement.files;
@@ -90,7 +90,7 @@ export class TheUploadComponent implements OnInit {
   pSummary(data) {
     this.updateFlag = false;
     this.updatedData = data;
-    console.log(this.updatedData);
+    // console.log(this.updatedData);
     this.display= true;
     $("#exampleModal1").modal('show');
   }

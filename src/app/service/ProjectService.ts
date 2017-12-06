@@ -147,10 +147,10 @@ export class ProjectService {
     this.APIService.CheckUploadedContracts(file).subscribe((res)=>{
       console.log(res);
       if(res){
-        if(res.success) {
+        if(true) {
           console.log(res.status);
           this.emitContractMsg.emit(res.status);
-        }
+        } else {}
       } else {}
     }, (err)=>{
       console.log(err);
@@ -162,7 +162,7 @@ export class ProjectService {
     this.APIService.CheckUploadedTracker(file).subscribe((res)=>{
       console.log(res);
       if(res){
-        if(res.success) {
+        if(true) {
           console.log(res.status);
           this.emitContractMsg.emit(res.status);
         }
