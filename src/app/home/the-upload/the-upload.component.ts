@@ -21,7 +21,7 @@ export class TheUploadComponent implements OnInit {
   constructor(private ProjectService: ProjectService) {
     this.ProjectService.emitContractMsg.subscribe((res)=>{
       this.updatedData = res;
-      // console.log(this.updatedData);
+      console.log(this.updatedData);
       this.display= true;
       $("#exampleModal1").modal('show');
     });
@@ -90,7 +90,7 @@ export class TheUploadComponent implements OnInit {
   pSummary(data) {
     this.updateFlag = false;
     this.updatedData = data;
-    // console.log(this.updatedData);
+    console.log(this.updatedData);
     this.display= true;
     $("#exampleModal1").modal('show');
   }
