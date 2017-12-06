@@ -1,0 +1,111 @@
+
+<nav class="navbar navbar-toggleable-md  navbar-inverse bg-primary">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" [routerLink]="['/home/']">Home</a>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li [routerLinkActive]="['active']">
+        <strong><a class="nav-link" [routerLink]="['/home/contract']"> Contract </a></strong>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <strong><a class="nav-link" [routerLink]="['/home/upload']"> Upload </a></strong>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <strong><a class="nav-link" [routerLink]="['/home/tracker']"> Tracker </a></strong>
+      </li>
+      <li [routerLinkActive]="['active']">
+        <strong><a class="nav-link" [routerLink]="['/home/summary']"> Summary </a></strong>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="nav navbar-nav navbar-right">
+    <a class="navbar-brand" style="color: white; cursor:pointer" data-toggle="modal" data-target="#exampleModal"> <i class="fa fa-user-o" aria-hidden="true" ></i> </a>
+    <a class="navbar-brand" style="color: white; cursor:pointer" (click)='logout()' > <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+  </div>
+
+</nav>
+
+<!-- <a [routerLink]="['/home/tracker']">Tracker</a>
+<a [routerLink]="['/home/contract']">Contract</a> -->
+
+
+<div style="min-height:900px" >
+  <router-outlet></router-outlet>
+</div>
+
+<div style="margin-top:10px; background-color: #0275d8!important; text-align:center; color:#aecae2; width:100%; height:20px" >
+   &#169; QCI IT Cell
+</div>
+
+
+<!--Password Modal starts here-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">User profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height:300px; overflow: auto ">
+        <div class="form-group text-center">
+          <br>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Current password" [(ngModel)]='c_pass' required>
+          <br>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New password" [(ngModel)]='pass1'  required>
+          <br>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm password" [(ngModel)]='pass2'  required>
+          <br>
+
+          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#inviteModal" >Invite user</button>
+
+          <div style="font-weight:600">{{passwordmsg}}</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)='updatePassword()' >Update password</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Password Modal ends here-->
+
+<!--Invite Modal starts here-->
+<div class="modal fade" id="inviteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Invite a user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="height:300px; overflow: auto ">
+        <div class="form-group">
+          <br>
+          <input type="email" class="form-control" id="exampleInputPassword1" placeholder="User Email ID" [(ngModel)]='newEmail' required>
+          <br>
+          <div style="font-weight:600"></div>
+          <br>
+
+          <p> <i> An invitaion email will be sent at new user's email ID following with Coal Dashboard website url and a random password. </i> </p>
+          <br>
+
+          <div *ngIf='justamoment'>Just a moment please...</div>
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)='inviteUser()' >Invite User</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Invite Modal ends here-->

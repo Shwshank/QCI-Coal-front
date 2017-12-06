@@ -1,0 +1,34 @@
+<div  class="box-radius text-center">
+  <div class="text-center"  style="height:1.9rem; width:100%; color: white; background-color: #525252; font-size:1.5rem "  >Total Contracts vs Status</div>
+  <br>
+  <div class="row justify-content-md-center" style="overflow:auto" >
+
+    <div class="col-7" style="max-height: 400px; z-index:999 !important">
+      <div *ngIf='!display'>
+        <h5>Data not available</h5>
+      </div>
+      <canvas [ngClass]=" display ?'opacityOne':'opacityZero'" class="graph" #donut  height="250" style=" z-index:999 !important" >a</canvas>
+
+
+    </div>
+    <div class=" col-5" style="height: 450px; overflow:auto">
+      <!-- <p >Signed Amt. :  {{data1}}</p> -->
+      <b>
+
+      <p class="set2">{{label1}} : {{data1}}</p>
+      <p class="set1">{{label2}} : {{data2}}</p>
+      <p class="set3">{{label3}} : {{data3}}</p>
+      <p class="set4">{{label4}} : {{data4}}</p>
+
+      <br>
+
+        <button type="button" class="btn " style="width:80%; padding:10px !important">
+          <i class="fa fa-clipboard fa-2x" aria-hidden="true"> </i>
+          <span style="font-size:2rem" > <b>  {{data5}} </b> </span>
+          <span style="font-size:1.4rem" > <br> Signed <br> Contracts </span>
+        </button>
+
+      </b>
+    </div>
+  </div>
+</div>

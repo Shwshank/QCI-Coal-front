@@ -1,0 +1,30 @@
+<div class="row justify-content-md-center" >
+
+  <div class=" col-md-12" style="">
+    <div class="box-radius text-center" >
+      <div class="text-center" style="background-color: #525252; color:white; height:45px; width:100%; margin:0 !important; font-size:1.6rem"  >
+        <span> <i class="fa fa-arrow-up" aria-hidden="true"></i> Signed Volume: {{data1}} </span>
+      </div>
+      <br>
+      <span class="mode-text">{{data3}}</span>
+
+      <i class="fa fa-train fa-5x" aria-hidden="true"></i> &nbsp; &nbsp; &nbsp;
+      <i class="fa fa-truck fa-5x" aria-hidden="true"></i>
+
+      <span class="mode-text">{{data4}}</span>
+      <div class="progress" style="margin-bottom:4px; background-color:#484848" >
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]='data5'>
+          <!-- <b>{{data5}}%</b> -->
+        </div>
+      </div>
+
+
+      <div class="text-center" style="background-color: #525252; color:white; height:75px; width:100%; margin:0 !important; font-size:1.5rem"  >
+        <span style="font-size:1.2rem" >Volume Lifted : </span> {{data2}} <br>
+        <i> <span style="font-size:.8rem"> * Data mentioned are in Million Metric Tonne</span></i>
+      </div>
+
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,224 @@
+<div *ngIf='display' class="container-fluid"  style=" overflow-x:auto;overflow-y:hidden">
+
+  <div class="row " style="padding-top:10px" >
+    <div class=" col-md-6 text-left">
+      <h2 style="margin-bottom:0px; ">Tracker  <span style="font-size: 1.2rem" > {{c_month}} </span> </h2>
+      <p style="color:grey"> <i> last updated : {{last_update}} </i></p>
+      <br>
+    </div>
+
+    <div class=" col-md-6 " style="float:right" >
+      <div class="form-group row">
+        <label for="example-datetime-local-input" class="col-2 col-form-label text-center">Select month</label>
+        <div class="col-5">
+          <input class="form-control" type="month" id="example-datetime-local-input"  [(ngModel)]='date2' format="dd/MM/yyyy">
+        </div>
+        <div class="3">
+          <button type="button" class="btn btn-primary" (click)="searchByDate()" >Search</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="padding-bottom:0px;">
+  </div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#table1" role="tab">Data Table</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#graph1" role="tab">Graph</a>
+    </li>
+  </ul>
+
+
+  <div class="tab-content" style="height:100%; width:100%; ">
+
+    <div class="tab-pane active" id="table1" role="tabpanel">
+      <br>
+      <table class="stripe row-border order-column" id="example"   cellspacing="0" width="100%"   style="font-size:.8rem !important">
+        <thead style="background-color:#dcefff">
+          <tr>
+
+            <th>Subsidiary</th>
+            <th>Location</th>
+            <th>Customer</th>
+            <th>Lifted</th>
+            <th>Days</th>
+            <th>Ideal</th>
+            <th>Status</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13</th>
+            <th>14</th>
+            <th>15</th>
+            <th>16</th>
+            <th>17</th>
+            <th>18</th>
+            <th>19</th>
+            <th>20</th>
+            <th>21</th>
+            <th>22</th>
+            <th>23</th>
+            <th>24</th>
+            <th>25</th>
+            <th>26</th>
+            <th>27</th>
+            <th>28</th>
+            <th>29</th>
+            <th>30</th>
+            <th>31</th>
+
+
+          </tr>
+        </thead>
+        <tfoot>
+         <tr>
+
+           <th style="opacity:0;  cursor:default;">Subsidiary</th>
+           <th style="opacity:0;  cursor:default;">Location</th>
+           <th style="opacity:0;  cursor:default;">Mode - Customer - Plant</th>
+           <th style="opacity:0;  cursor:default;">Total Lifted</th>
+           <th style="opacity:0;  cursor:default;">Days</th>
+           <th style="opacity:0;  cursor:default;">Total Remaining</th>
+           <th style="opacity:0;  cursor:default;">Status</th>
+           <th style="opacity:0;  cursor:default;">1</th>
+           <th style="opacity:0;  cursor:default;">2</th>
+           <th style="opacity:0;  cursor:default;">3</th>
+           <th style="opacity:0;  cursor:default;">4</th>
+           <th style="opacity:0;  cursor:default;">5</th>
+           <th style="opacity:0;  cursor:default;">6</th>
+           <th style="opacity:0;  cursor:default;">7</th>
+           <th style="opacity:0;  cursor:default;">8</th>
+           <th style="opacity:0;  cursor:default;">9</th>
+           <th style="opacity:0;  cursor:default;">10</th>
+           <th style="opacity:0;  cursor:default;">11</th>
+           <th style="opacity:0;  cursor:default;">12</th>
+           <th style="opacity:0;  cursor:default;">13</th>
+           <th style="opacity:0;  cursor:default;">14</th>
+           <th style="opacity:0;  cursor:default;">15</th>
+           <th style="opacity:0;  cursor:default;">16</th>
+           <th style="opacity:0;  cursor:default;">17</th>
+           <th style="opacity:0;  cursor:default;">18</th>
+           <th style="opacity:0;  cursor:default;">19</th>
+           <th style="opacity:0;  cursor:default;">20</th>
+           <th style="opacity:0;  cursor:default;">21</th>
+           <th style="opacity:0;  cursor:default;">22</th>
+           <th style="opacity:0;  cursor:default;">23</th>
+           <th style="opacity:0;  cursor:default;">24</th>
+           <th style="opacity:0;  cursor:default;">25</th>
+           <th style="opacity:0;  cursor:default;">26</th>
+           <th style="opacity:0;  cursor:default;">27</th>
+           <th style="opacity:0;  cursor:default;">28</th>
+           <th style="opacity:0;  cursor:default;">29</th>
+           <th style="opacity:0;  cursor:default;">30</th>
+           <th style="opacity:0;  cursor:default;">31</th>
+         </tr>
+        </tfoot>
+        <tbody>
+
+          <tr *ngFor="let track of tracker  ;  let i = index ">
+
+            <td>{{track.d1}}</td>
+            <td>{{track.d2}}</td>
+            <td>{{track.d3}}</td>
+            <td>{{track.lifted}}</td>
+            <td class="">
+              <input style="width: 45px" type="number" name=""   [(ngModel)]='track.d8' value={{track.d8}}>
+            </td>
+            <td>{{parseint((track.needed*last_date)/track.d8)}}</td>
+
+            <td>
+              <span *ngIf="calStatus(track.lifted,(track.needed*last_date),track.d8) == 'Beyond'" style="color:#5f4cad"> <b>&nbsp;{{calStatus(track.lifted,(track.needed*last_date),track.d8)}}&nbsp; </b> </span>
+              <span *ngIf="calStatus(track.lifted,(track.needed*last_date),track.d8) == 'Okay'" style="color:#248c0b"> <b>&nbsp;{{calStatus(track.lifted,(track.needed*last_date),track.d8)}}&nbsp; </b> </span>
+              <span *ngIf="calStatus(track.lifted,(track.needed*last_date),track.d8) == 'Below'" style="color:#ff5722"> <b>&nbsp;{{calStatus(track.lifted,(track.needed*last_date),track.d8)}}&nbsp;</b>  </span>
+            </td>
+
+            <!-- b5eaa8 -->
+            <td>{{track.d1d}}</td>
+            <td>{{track.d2d}}</td>
+            <td>{{track.d3d}}</td>
+            <td>{{track.d4d}}</td>
+            <td>{{track.d5d}}</td>
+            <td>{{track.d6d}}</td>
+            <td>{{track.d7d}}</td>
+            <td>{{track.d8d}}</td>
+            <td>{{track.d9d}}</td>
+            <td>{{track.d10d}}</td>
+            <td>{{track.d11d}}</td>
+            <td>{{track.d12d}}</td>
+            <td>{{track.d13d}}</td>
+            <td>{{track.d14d}}</td>
+            <td>{{track.d15d}}</td>
+            <td>{{track.d16d}}</td>
+            <td>{{track.d17d}}</td>
+            <td>{{track.d18d}}</td>
+            <td>{{track.d19d}}</td>
+            <td>{{track.d20d}}</td>
+            <td>{{track.d21d}}</td>
+            <td>{{track.d22d}}</td>
+            <td>{{track.d23d}}</td>
+            <td>{{track.d24d}}</td>
+            <td>{{track.d25d}}</td>
+            <td>{{track.d26d}}</td>
+            <td>{{track.d27d}}</td>
+            <td>{{track.d28d}}</td>
+            <td>{{track.d29d}}</td>
+            <td>{{track.d30d}}</td>
+            <td>{{track.d31d}}</td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tab-pane " id="graph1" role="tabpanel">
+      <br><br>
+      <style>
+          text {
+              font: 12px sans-serif;
+          }
+          svg {
+              display: block;
+          }
+          html, body, svg {
+              margin: auto;
+              padding: 0px;
+              height: 600px;
+              width: 85vw;
+
+          }
+      </style>
+
+      <body class='with-3d-shadow with-transitions'>
+
+        <div class="row justify-content-md-center" >
+          <div class="col-12" >
+
+            <svg id="chart1"  style="padding-left:10px"  ></svg>
+
+          </div>
+        </div>
+
+      </body>
+
+    </div>
+  </div>
+
+
+</div>

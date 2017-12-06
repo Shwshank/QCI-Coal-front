@@ -1,0 +1,84 @@
+<h1 class="text-center"  style="padding:20px">
+  QCI Coal
+</h1>
+<div class="container">
+
+  <div class="row justify-content-md-center" style="height:40px" >
+    <div class="col col-lg-2">
+      <!-- 1 of 3 -->
+    </div>
+    <div class="col-12 col-md-auto">
+      <!-- Variable width content -->
+    </div>
+    <div class="col col-lg-2">
+      <!-- 3 of 3 -->
+    </div>
+  </div>
+
+
+  <div class="row justify-content-md-center">
+    <div class="col-lg-4 col-md-6 col-sm-12" style="padding:10px">
+
+      <div class="card" style="min-width: 200px; padding:10px">
+        <span class="text-center" style="font-size:2rem">
+          <i class="fa fa-pie-chart fa-5x" aria-hidden="true"></i>
+        </span>
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+          <h4 class="card-title">Summary</h4>
+          <p class="card-text">Graphical representation of subsidiaries and associated data</p>
+          <a [routerLink]="['/home/summary']" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12" style="padding:10px">
+
+      <div class="card" style="min-width: 200px; padding:10px">
+
+        <span class="text-center"  style="font-size:2rem">
+          <i class="fa fa-cloud-upload fa-5x"></i>
+        </span>
+
+        <div class="card-block ">
+          <h4 class="card-title ">Upload</h4>
+          <p class="card-text">Import CSV files to update contracts and daily process tracker</p>
+          <a [routerLink]="['/home/upload']" class="btn btn-primary">Upload </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12" style="padding:10px">
+
+      <div class="card" style="min-width: 200px; padding:10px">
+        <span class="text-center"  style="font-size:2rem">
+          <i class="fa fa-line-chart fa-5x"></i>
+        </span>
+
+        <div class="card-block">
+          <h4 class="card-title">Tracker</h4>
+          <p class="card-text">Track monthly coal lifted volume with respect to signing volume</p>
+          <a [routerLink]="['/home/tracker']" class="btn btn-primary">View Tracker</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6 col-sm-12" style="padding:10px">
+
+      <div class="card" style="min-width: 200px; padding:10px">
+        <span class="text-center" style="font-size:2rem">
+          <i class="fa fa-file-text-o fa-5x"></i>
+        </span>
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+          <h4 class="card-title">Contract</h4>
+          <p class="card-text">View contracts details of customers and subsidiaries</p>
+          <a [routerLink]="['/home/contract']" class="btn btn-primary">View Contracts</a>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

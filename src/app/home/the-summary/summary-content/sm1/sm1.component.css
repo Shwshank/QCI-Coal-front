@@ -1,0 +1,11 @@
+.box-radius{
+
+  width: 98%;
+  border : 5px solid #525252;
+  border-radius: 15px;
+  margin: 10px;
+}
+.mode-text{
+  margin: 3%;
+  font-size: 2rem
+}

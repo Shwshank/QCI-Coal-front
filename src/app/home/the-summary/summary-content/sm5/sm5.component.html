@@ -1,0 +1,30 @@
+<div  class="box-radius text-center">
+  <div class="text-center"  style="height:1.9rem; width:100%; color: white; background-color: #525252; font-size:1.5rem "  >Grade Variance</div>
+  <br>
+  <div class="row justify-content-md-center" >
+
+    <div class="col-7" style="max-height: 400px; z-index:999 !important">
+      <div *ngIf='!display'>
+        <h5>Data Not available</h5>
+      </div>
+      <canvas [ngClass]=" display ?'opacityOne':'opacityZero'" class="graph" #donut  height="230" style=" z-index:999 !important" >a</canvas>
+
+
+    </div>
+    <div class=" col-5" style="height: 400px; overflow:auto">
+      <!-- <p >Signed Amt. :  {{data1}}</p> -->
+      <b>
+      <p class="set1">{{label1}} : {{data1}} - {{p1}}%</p>
+      <p class="set2">{{label2}} : {{data2}} - {{p2}}%</p>
+      <p class="set3">{{label3}} : {{data3}} - {{p3}}%</p>
+      <p class="set4">{{label4}} : {{data4}} - {{p4}}%</p>
+      <p class="set5">{{label5}} : {{data5}} - {{p5}}%</p>
+      <p class="set6">{{label6}} : {{data6}} - {{p6}}%</p>
+      <p class="set7">{{label7}} : {{data7}} - {{p7}}%</p>
+      <br>
+      <!-- <p class="" style="font-size:1.7rem" > {{data5}} Total contracts</p> -->
+      </b>
+    </div>
+
+  </div>
+</div>

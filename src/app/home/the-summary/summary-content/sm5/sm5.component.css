@@ -1,0 +1,8 @@
+.box-radius{
+
+  width: 98%;
+  border : 4px solid #525252;
+  border-radius: 15px;
+  margin: 10px;
+  /*color: #469846;*/
+}

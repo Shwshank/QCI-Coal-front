@@ -1,0 +1,72 @@
+<div *ngIf='display' class="container"  style=" overflow-x:auto;">
+
+
+  <div class="row " style="padding-top:20px" >
+    <div class=" col-md-4 text-left">
+      <h2 style="margin-bottom:0px; ">Contract</h2>
+      <p style="color:grey"> <i> last updated : {{last_update}} </i></p>
+    </div>
+    <div class=" col-md-8 text-right">
+
+      <!-- <div class="fileinput fileinput-new" data-provides="fileinput" >
+          <span class="btn  btn-file"><span>Updated contract : </span><input type="file" (change)="updated($event);" accept=".csv"/></span>
+      </div> -->
+    </div>
+
+  </div>
+
+  <table class="stripe row-border order-column table-responsive " id="example2" cellspacing="0" width="100%" style="font-size:.8rem !important">
+    <thead  style="background-color:#dcefff">
+      <tr>
+
+        <th>Subsidiary</th>
+        <th>Primary Location</th>
+        <th>Customer-Plant-Mode</th>
+        <th>Contract Signing Date</th>
+        <th>Days</th>
+        <th>Annual QTY</th>
+        <th>Remaining Volume (Metric Tonne)</th>
+        <th>Auction type</th>
+        <th>Commencement Status</th>
+
+      </tr>
+    </thead>
+    <tfoot>
+     <tr>
+
+       <th>Subsidiary</th>
+       <th>Primary Location</th>
+       <th>Customer-Plant-Mode</th>
+       <th>Contract Signing Date</th>
+       <th style="opacity:0">Days</th>
+       <th>Annual QTY</th>
+       <th>Remaining Volume (Metric Tonne)</th>
+       <th>Auction type</th>
+       <th>Commencement Status</th>
+
+     </tr>
+    </tfoot>
+    <tbody>
+
+      <tr *ngFor="let track of tracker  ;  let i = index ">
+
+        <td>{{track.d1}}</td>
+        <td>{{track.d2}}</td>
+        <td>{{track.d3}}</td>
+        <td>{{track.d8}}</td>
+        <td class="">
+          <input type="number" name="val"  [(ngModel)]='track.d16' value={{track.d16}}  style=" width:45px !important" >
+
+          &nbsp;
+          <i (click)="saveDayNo(track.d16,track.d17)" style="cursor:pointer" class="fa fa-floppy-o" aria-hidden="true"></i>
+
+        </td>
+        <td>{{parseint(track.d7/track.d16)}}</td>
+        <td>{{track.d9}}</td>
+        <td>{{track.d11}}</td>
+        <td>{{track.d14}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
