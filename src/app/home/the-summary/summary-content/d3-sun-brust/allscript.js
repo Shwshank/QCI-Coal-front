@@ -15,7 +15,7 @@ var y = d3.scale.sqrt()
 // var color = d3.scale.category20c();
 
 var color = d3.scale.ordinal()
-.range(["#b9b9b9", "#d9534f",  "#469846", "#f0ad4e",]);
+.range(["#b9b9b9", "#f0ad4e",  "#469846", "#d9534f",]);
 
 var partition = d3.layout.partition()
     .value(function(d) { return d.size; });
