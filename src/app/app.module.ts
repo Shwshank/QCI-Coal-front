@@ -11,6 +11,7 @@ import {ToastModule} from 'ng2-toastr/ng2-toastr';
 import {ToastOptions} from 'ng2-toastr';
 import { CustomOption } from './ng2-toastr-custom-option';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 import { AuthGuard } from './service/ZauthGuard';
 import { routes } from './app.routes';
@@ -33,6 +34,8 @@ import { Sm4Component } from './home/the-summary/summary-content/sm4/sm4.compone
 import { Sm5Component } from './home/the-summary/summary-content/sm5/sm5.component';
 import { LoginComponent } from './login/login.component';
 import { D3SunBrustComponent } from './home/the-summary/summary-content/d3-sun-brust/d3-sun-brust.component';
+import { Section1Component } from './home/info-page/section1/section1.component';
+import { Section2Component } from './home/info-page/section2/section2.component';
 
 @NgModule({
   declarations: [
@@ -51,9 +54,12 @@ import { D3SunBrustComponent } from './home/the-summary/summary-content/d3-sun-b
     Sm5Component,
     LoginComponent,
     D3SunBrustComponent,
+    Section1Component,
+    Section2Component,
 
   ],
   imports: [
+    NgxEchartsModule,
     BrowserAnimationsModule,
     ToastModule.forRoot(),
     FormsModule,

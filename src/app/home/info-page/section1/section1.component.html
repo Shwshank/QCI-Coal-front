@@ -1,0 +1,62 @@
+<section  class="section1">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+
+      <div  class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="100" >
+        <div class="text-center heading" > Volume Signed </div>
+        <div echarts [options]="option1" class="demo-chart" style="width:100%; height:100%" ></div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="200" >
+        <div class="text-center heading" > Contracts </div>
+        <div style="height:90%; overflow-y:auto">
+          <table class="table table-fixed" style="font-size:15px;">
+          <thead style="background-color: #0274d8; color: white" >
+            <tr>
+              <th>#</th>
+              <th>Sub Name</th>
+              <th>Mode / Contract</th>
+              <th>Volume (mmt)</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr *ngFor="let data of option2_tableData; let i = index">
+              <th scope="row">{{(i+1)}}</th>
+              <td>{{data.sub}}</td>
+              <td>
+                <span *ngIf="data.mode == 'Rail'" > <i class="fa fa-train fa-2x" aria-hidden="true"></i> </span>
+                <span *ngIf="data.mode == 'Road'" > <i class="fa fa-truck fa-2x" aria-hidden="true"></i> </span>
+                  {{data.contract}}
+              </td>
+              <td>{{data.volume}}</td>
+            </tr>
+
+          </tbody>
+        </table>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="300" >
+        <div class="text-center heading" > Contract Signed </div>
+        <div echarts [options]="option3" class="demo-chart" style="width:100%; height:100%" ></div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="400" >
+        <div class="text-center heading" > Progress Summary </div>
+        <div echarts [options]="option4" class="demo-chart" style="width:100%; height:100%" ></div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="500" >
+        <div class="text-center heading" > Connected Graph </div>
+        <div echarts [options]="option5" class="demo-chart" style="width:100%; height:100%" ></div>
+      </div>
+
+      <div class="col-sm-12 col-md-4 displayGraph1"  data-aos="fade-up"  data-aos-delay="600" >
+        <div class="text-center heading" > Lifted amount </div>
+        <div echarts [options]="option6" class="demo-chart" style="width:100%; height:100%" ></div>
+      </div>
+
+    </div>
+  </div>
+</section>

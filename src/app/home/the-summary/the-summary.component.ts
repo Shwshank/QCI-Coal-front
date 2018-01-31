@@ -40,7 +40,6 @@ export class TheSummaryComponent implements OnInit {
   }
 
   psuSummary(id, name) {
-
     localStorage.setItem('summaryFlag','1');
     this.psu = " - "+ name
     this.router.navigate(['home/summary/psusummary'],

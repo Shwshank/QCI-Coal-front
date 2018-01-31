@@ -1,5 +1,4 @@
-
-<nav class="navbar navbar-toggleable-md  navbar-inverse bg-primary">
+<nav class="navbar navbar-toggleable-md  navbar-inverse bg-primary ">
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -15,9 +14,9 @@
       <li [routerLinkActive]="['active']">
         <strong><a class="nav-link" [routerLink]="['/home/tracker']"> Tracker </a></strong>
       </li>
-      <li [routerLinkActive]="['active']">
+      <!-- <li [routerLinkActive]="['active']">
         <strong><a class="nav-link" [routerLink]="['/home/summary']"> Summary </a></strong>
-      </li>
+      </li> -->
     </ul>
 
   </div>
@@ -29,6 +28,10 @@
 
 </nav>
 
+<a href="#" id="scroll" style="display: none;"><span></span></a>
+
+
+
 <!-- <a [routerLink]="['/home/tracker']">Tracker</a>
 <a [routerLink]="['/home/contract']">Contract</a> -->
 
@@ -38,7 +41,7 @@
 </div>
 
 <div style="margin-top:10px; background-color: #0275d8!important; text-align:center; color:#aecae2; width:100%; height:20px" >
-   &#169; QCI IT Cell
+    QCI IT Cell
 </div>
 
 
@@ -55,11 +58,11 @@
       <div class="modal-body" style="height:300px; overflow: auto ">
         <div class="form-group text-center">
           <br>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Current password" [(ngModel)]='c_pass' required>
+          <input type="password" class="form-control"  placeholder="Current password" [(ngModel)]='c_pass' required>
           <br>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="New password" [(ngModel)]='pass1'  required>
+          <input type="password" class="form-control"  placeholder="New password" [(ngModel)]='pass1'  required>
           <br>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm password" [(ngModel)]='pass2'  required>
+          <input type="password" class="form-control"  placeholder="Confirm password" [(ngModel)]='pass2'  required>
           <br>
 
           <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#inviteModal" >Invite user</button>

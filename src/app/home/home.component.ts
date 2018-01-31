@@ -90,6 +90,10 @@ export class HomeComponent implements OnInit {
 
     // Get PSU Summary
     this.ProjectService.getPsuSummary(1);
+
+    // navigate to summary id = 0
+    // this.router.navigate(['/home/summary/psusummary?psu_id=0']);
+
   }
 
   showSuccess(msg1, msg2) {
