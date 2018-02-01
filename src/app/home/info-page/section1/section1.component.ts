@@ -14,6 +14,7 @@ export class Section1Component implements OnInit {
   option4: any;
   option5: any;
   option6: any;
+  option7: any;
   color: any;
 
   option1_legends: any;
