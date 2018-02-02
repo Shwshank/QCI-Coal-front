@@ -36,6 +36,9 @@ import { LoginComponent } from './login/login.component';
 import { D3SunBrustComponent } from './home/the-summary/summary-content/d3-sun-brust/d3-sun-brust.component';
 import { Section1Component } from './home/info-page/section1/section1.component';
 import { Section2Component } from './home/info-page/section2/section2.component';
+import { Sm6Component } from './home/the-summary/summary-content/sm6/sm6.component';
+import { Sm7Component } from './home/the-summary/summary-content/sm7/sm7.component';
+import { Sm8Component } from './home/the-summary/summary-content/sm8/sm8.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +59,9 @@ import { Section2Component } from './home/info-page/section2/section2.component'
     D3SunBrustComponent,
     Section1Component,
     Section2Component,
+    Sm6Component,
+    Sm7Component,
+    Sm8Component,
 
   ],
   imports: [

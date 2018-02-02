@@ -22,7 +22,7 @@ export const routes: Routes = [
   { path: 'd3-sun-brust', component: D3SunBrustComponent },
   { path: 'home', component: HomeComponent,
     children: [
-      { path: '', pathMatch: 'full', component: InfoPageComponent, canActivate: [AuthGuard]},
+      { path: '', pathMatch: 'full', component: InfoPageComponent},
       { path: 'tracker', component: TheTableComponent, canActivate: [AuthGuard]},
       { path: 'contract', component: TheContractComponent, canActivate: [AuthGuard]},
       { path: 'upload', component: TheUploadComponent, canActivate: [AuthGuard]},
