@@ -4,8 +4,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 @Injectable()
 export class APIService {
 
-  // projectURL: string = 'http://192.168.15.221:8000';
-  projectURL: string = 'http://qcitech.org:8081';
+  projectURL: string = 'http://192.168.15.187:8000';
+  // projectURL: string = 'http://qcitech.org:8081';
 
   constructor( private http: Http, ) {}
 
@@ -59,6 +59,14 @@ export class APIService {
 
   AddNewUser(data) {
     return this.http.post(this.projectURL+'/adduser',data).map(res=>res.json());
+  }
+
+  GetTempData() {
+    return this.http.get(this.projectURL+'/gettimewisesummary').map(res=>res.json());
+  }
+
+  GetTempDataTower() {
+    return this.http.get(this.projectURL+'/getLocationWiseMonthLifting').map(res=>res.json());
   }
 
 }

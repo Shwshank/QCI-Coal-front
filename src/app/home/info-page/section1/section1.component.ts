@@ -16,6 +16,7 @@ export class Section1Component implements OnInit {
   option6: any;
   option7: any;
   color: any;
+  color1: any;
 
   sub1 : any;
   sub2 : any;
@@ -73,6 +74,8 @@ export class Section1Component implements OnInit {
 
     this.sub4 = this.projectService.emitOption1_data2.subscribe(res=>{
         this.option1_data2 = res;
+
+        this.getGraph1();
     });
 
     this.sub5 = this.projectService.emitOption2_tableData.subscribe(res=>{
@@ -89,6 +92,8 @@ export class Section1Component implements OnInit {
 
     this.sub8 = this.projectService.emitOption3_data2.subscribe(res=>{
         this.option3_data2 = res;
+
+        this.getGraph3();
     });
 
     this.sub9 = this.projectService.emitOption4_legends.subscribe(res=>{
@@ -101,6 +106,8 @@ export class Section1Component implements OnInit {
 
     this.sub11 = this.projectService.emitOption4_series.subscribe(res=>{
         this.option4_series = res;
+
+        this.getGraph4();
     });
 
     this.sub12 = this.projectService.emitOption5_legends.subscribe(res=>{
@@ -113,6 +120,8 @@ export class Section1Component implements OnInit {
 
     this.sub14 = this.projectService.emitOption5_series.subscribe(res=>{
         this.option5_series = res;
+
+        this.getGraph5();
     });
 
     this.sub15 = this.projectService.emitOption6_legends.subscribe(res=>{
@@ -125,6 +134,8 @@ export class Section1Component implements OnInit {
 
     this.sub17 = this.projectService.emitOption6_series.subscribe(res=>{
         this.option6_series = res;
+
+        this.getGraph6();
     });
 
     // this.option1_legends = ['1','2','3','4','5'];
@@ -209,29 +220,30 @@ export class Section1Component implements OnInit {
   }
 
   ngOnInit() {
-    this.projectService.getData();
+    // this.projectService.getData();
+    this.projectService.getTempData();
 
-    this.color = ['#0274d8','#da534e','#8bc34a','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
+    this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
 
-    this.getGraph1();
-    this.getGraph2();
-    this.getGraph3();
-    this.getGraph4();
-    this.getGraph5();
-    this.getGraph6();
+    this.color1 = ['#e91e63','#009688','#da534e','#8bc34a','#ff9800','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8'];
+
+    // this.getGraph2();
+    // this.getGraph3();
+    // this.getGraph4();
+    // this.getGraph5();
+    // this.getGraph6();
 
   }
 
   getGraph1() {
 
     this.option1 = {
-        color: this.color,
+        color: this.color1,
         itemStyle: {
           borderWidth: 10,
           borderColor: '#FFF'
         },
         title : {
-            // text: 'Volume Signed',
             subtext: '',
             x: 'center',
             color:'white'
@@ -240,14 +252,19 @@ export class Section1Component implements OnInit {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        legend: {
+        legend: [{
             orient: 'vertical',
             x: 'left',
             data:this.option1_legends
         },
+        {
+            orient: 'vertical',
+            x: 'right',
+            data:['Rail',"Road"]
+        }],
         series: [
             {
-                name:'g1',
+                name:'PSU',
                 type:'pie',
                 selectedMode: 'single',
                 radius: [0, '40%'],
@@ -265,11 +282,12 @@ export class Section1Component implements OnInit {
                 data: this.option1_data1
             },
             {
-                name:'g11',
+                name:'Mode',
                 type:'pie',
                 radius: ['50%', '70%'],
                 label: {
                     normal: {
+                      show: false,
                       position: 'inner'
                     }
                 },
@@ -289,7 +307,7 @@ export class Section1Component implements OnInit {
   getGraph3() {
 
     this.option3 = {
-        color: this.color,
+        color: this.color1,
         itemStyle: {
           borderWidth: 10,
           borderColor: '#FFF'
@@ -303,14 +321,19 @@ export class Section1Component implements OnInit {
             trigger: 'item',
             formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
-        legend: {
+        legend: [{
             orient: 'vertical',
             x: 'left',
             data:this.option3_legends
         },
+        {
+            orient: 'vertical',
+            x: 'right',
+            data:['Linkage Auction','Special Forward E-auction']
+        }],
         series: [
             {
-                name:'g1',
+                name:'PSU',
                 type:'pie',
                 selectedMode: 'single',
                 radius: [0, '40%'],
@@ -328,11 +351,12 @@ export class Section1Component implements OnInit {
                 data: this.option3_data1
             },
             {
-                name:'g11',
+                name:'Auction Type',
                 type:'pie',
                 radius: ['50%', '70%'],
                 label: {
                     normal: {
+                      show: false,
                       position: 'inner'
                     }
                 },
@@ -399,20 +423,38 @@ export class Section1Component implements OnInit {
           // borderWidth: 10,
           borderColor: '#FFF'
         },
-        angleAxis: {
-            type: 'category',
-            data: this.option5_data,
-            z: 10
+        title : {
+            // text: 'Progress summary',
+            subtext: '',
+            x: 'center',
         },
-        radiusAxis: {
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
         },
-        polar: {
-        },
-        series: this.option5_series,
         legend: {
-            show: true,
-            data: this.option5_legends
-        }
+            data:this.option5_legends
+        },
+        grid: {
+            left: '1%',
+            right: '1%',
+            // bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : this.option5_data
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : this.option5_series
     };
 
   }
@@ -454,7 +496,6 @@ export class Section1Component implements OnInit {
   ngOnDestroy() {
     this.sub1.unsubscribe();
     this.sub2.unsubscribe();
-    this.sub3.unsubscribe();
     this.sub4.unsubscribe();
     this.sub5.unsubscribe();
     this.sub6.unsubscribe();

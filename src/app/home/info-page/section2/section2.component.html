@@ -2,8 +2,12 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-10 cubeGraph" data-aos="fade-up"  data-aos-delay="200" >
-        <div class="text-center heading" >Monthly Tracker</div>
-        <div echarts [options]="options" class="demo-chart" style="width:95%; height:95%"  data-aos="fade-up"  data-aos-delay="700" ></div>
+        <div class="text-center heading" >Monthly Tracker &nbsp; &nbsp; &nbsp;
+
+      <span>    <input id="month" type="month" class="form-control form-control-2 input-sm to" (change)="newMonth()" [(ngModel)]="month"  > </span>
+
+       </div>
+      <div echarts [options]="options" class="demo-chart" style="width:99%; height:92%"  data-aos="fade-up"  data-aos-delay="700" ></div>
       </div>
     </div>
   </div>

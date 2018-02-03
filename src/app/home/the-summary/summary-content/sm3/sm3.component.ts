@@ -35,13 +35,13 @@ export class Sm3Component implements OnInit {
       this.data2 = res.data[res.id].status[1][1];
       this.data3 = res.data[res.id].status[2][1];
       this.data4 = res.data[res.id].status[3][1];
-      this.data5 = res.data[res.id].status[4][1];
+      // this.data5 = res.data[res.id].status[4][1];
 
       this.label1 = res.data[res.id].status[0][0];
       this.label2 = res.data[res.id].status[1][0];
       this.label3 = res.data[res.id].status[2][0];
       this.label4 = res.data[res.id].status[3][0];
-      this.label5 = res.data[res.id].status[4][0];
+      // this.label5 = res.data[res.id].status[4][0];
 
       if(this.data5 == 0){
         this.display = false;
@@ -53,8 +53,7 @@ export class Sm3Component implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getGraph() {
 
@@ -63,10 +62,10 @@ export class Sm3Component implements OnInit {
      this.myChart = new Chart(this.donutCtx, {
         type: 'doughnut',
         data: {
-           labels: [this.label1,this.label2,this.label3,this.label4],
+           labels: [this.label1,this.label2,this.label3],
            datasets: [{
-               data : [this.data1,this.data2,this.data3,this.data4],
-               backgroundColor: ['#469846','#0275D8','#F0AD4E','#d9534f']
+               data : [this.data1,this.data2,this.data3],
+               backgroundColor: ['#469846','#0275D8','#F0AD4E']
            },
          ]
         },

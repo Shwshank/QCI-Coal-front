@@ -1,6 +1,5 @@
 import {  ViewChild, Component, ElementRef, OnInit } from '@angular/core';
 import { ProjectService } from '../../../../service/ProjectService';
-import Chart from 'chart.js';
 
 @Component({
   selector: 'app-sm5',
@@ -9,25 +8,52 @@ import Chart from 'chart.js';
 })
 export class Sm5Component implements OnInit {
 
-  option1: any;
+  option8: any;
+  option8_data: any;
+  option8_legends: any;
+  color: any;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) {
+      this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
+
+      this.projectService.emitPSUData.subscribe((res)=>{
+
+        this.option8_data = res.data[res.id].graph2.data1;
+        this.option8_legends = res.data[res.id].graph2.legends;
+        this.getGraph1();
+      });
+
+  }
+
 
   ngOnInit() {
+    this.projectService.getData3();
     this.getGraph1();
   }
 
   getGraph1() {
-    this.option1 = {
+    let piePatternSrc = 'https://www.paychex.com/sites/default/files/irs-delays-2014-tax-season.jpg';
+    let bgPatternSrc = 'https://thumbs.dreamstime.com/b/old-book-page-17819080.jpg';
 
-          title: {
-              // text: 'Customized Pie',
-              left: 'center',
-              top: 10,
-              textStyle: {
-                  color: 'white'
-              }
-          },
+    let piePatternImg = new Image();
+    piePatternImg.src = piePatternSrc;
+    let bgPatternImg = new Image();
+    bgPatternImg.src = bgPatternSrc;
+
+    let itemStyle = {
+      normal: {
+        opacity:0.7,
+        color: {
+          image: piePatternImg,
+          // repeat: 'repeat'
+        },
+        borderWidth: 3,
+        borderColor: '#235894'
+      }
+    };
+    this.option8 = {
+
+
 
           tooltip : {
               trigger: 'item',
@@ -36,50 +62,57 @@ export class Sm5Component implements OnInit {
 
           visualMap: {
               show: false,
-              min: 80,
-              max: 600,
+              min: -220,
+              max: 3000,
               inRange: {
-                  colorLightness: [0, 1]
+                  // colorLightness: [0, 1]
               }
           },
+          legend: {
+            // orient: 'vertical',
+            // x: 'left',
+            data:this.option8_legends
+          },
+
           series : [
               {
-                  name:'访问来源',
+                title: {
+                    // text: 'Customized Pie',
+                    left: 'center',
+                    top: 10,
+                    textStyle: {
+                        color: 'white'
+                    }
+                },
+                  name:'11',
                   type:'pie',
-                  radius : '95%',
+                  radius : '85%',
                   center: ['50%', '50%'],
-                  data:[
-                      {value:335, name:'1'},
-                      {value:310, name:'2'},
-                      {value:274, name:'3'},
-                      {value:235, name:'4'},
-                      {value:400, name:'5'}
-                  ].sort(function (a, b) { return a.value - b.value; }),
-                  roseType: 'radius',
+                  data:this.option8_data,
+                  // roseType: 'radius',
                   label: {
+                    show: false,
                       normal: {
+                        show: false,
                           textStyle: {
                               color: 'black'
                           }
                       }
                   },
+                  color: this.color,
                   labelLine: {
-                      normal: {
+                    show: false,
+                      normal: {show: false,
                           lineStyle: {
+                            show: false,
                               // color: 'rgba(255, 255, 255, 0.3)'
                           },
                           smooth: 0.2,
-                          length: 10,
-                          length2: 20
+                          length: 5,
+                          length2: 2
                       }
                   },
-                  itemStyle: {
-                      normal: {
-                          color: '#c23531',
-                          shadowBlur: 200,
-                          shadowColor: 'rgba(0, 0, 0, 0.5)'
-                      }
-                  },
+                  itemStyle: itemStyle,
 
                   animationType: 'scale',
                   animationEasing: 'elasticOut',

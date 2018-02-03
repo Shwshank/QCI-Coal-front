@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../../../../service/ProjectService';
 
 @Component({
   selector: 'app-sm8',
@@ -7,27 +8,53 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Sm8Component implements OnInit {
 
-  option1: any;
+  option11: any;
+  option11_data: any;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) {
+    // this.projectService.emitOption11_data.subscribe(res=>{
+    //   this.option11_data = res;
+    // });
+
+    this.projectService.emitPSUData.subscribe((res)=>{
+
+      this.option11_data = res.data[res.id].wordcount;
+      console.log(this.option11_data);
+
+      // for(let i=0; i< this.option11_data.length;i++) {
+      //   this.option11_data[i].name = this.option11_data[i].name
+      // }
+
+      this.getGraph1();
+    });
+  }
 
   ngOnInit() {
-    this.getGraph1();
+    this.projectService.getData6();
   }
 
   getGraph1() {
 
 
-    this.option1 = {
+    this.option11 = {
 
+      tooltip:{
+        trigger:'item',
+      },
       series: [{
               type: 'wordCloud',
-              gridSize: 20,
-              sizeRange: [12, 50],
-              rotationRange: [0, 0],
-              shape: 'circle',
+              gridSize: 0,
+              sizeRange: [11, 40],
+              rotationRange: [-90, 90],
+              rotationStep: 45,
+              left: 'center',
+              top: 'center',
+              width: '100%',
+              height: '100%',
+              drawOutOfBound: false,
               textStyle: {
                   normal: {
+                    fontWeight: 'bold',
                       color: function() {
 
                         let color = ['#0274d8','#da534e','#f0ad4e','#f0ad4e','#8bc34a','#ff9800','#797979','#e91e63','#3f51b5','#795548','#673ab7','#9c27b0'];
@@ -40,75 +67,7 @@ export class Sm8Component implements OnInit {
                       shadowColor: '#333'
                   }
               },
-              data: [{
-                  name: 'Sam S Club',
-                  value: 10000,
-                  textStyle: {
-                      normal: {
-                          color: 'black'
-                      },
-                      emphasis: {
-                          color: 'red'
-                      }
-                  }
-              }, {
-                  name: 'Macys',
-                  value: 6181
-              }, {
-                  name: 'Amy Schumer',
-                  value: 4386
-              }, {
-                  name: 'Jurassic World',
-                  value: 4055
-              }, {
-                  name: 'Charter Communications',
-                  value: 2467
-              }, {
-                  name: 'Chick Fil A',
-                  value: 2244
-              }, {
-                  name: 'Planet Fitness',
-                  value: 1898
-              }, {
-                  name: 'Pitch Perfect',
-                  value: 1484
-              }, {
-                  name: 'Express',
-                  value: 1112
-              }, {
-                  name: 'Home',
-                  value: 965
-              }, {
-                  name: 'Johnny Depp',
-                  value: 847
-              }, {
-                  name: 'Lena Dunham',
-                  value: 582
-              }, {
-                  name: 'Lewis Hamilton',
-                  value: 555
-              }, {
-                  name: 'KXAN',
-                  value: 550
-              }, {
-                  name: 'Mary Ellen Mark',
-                  value: 462
-              }, {
-                  name: 'Farrah Abraham',
-                  value: 366
-              }, {
-                  name: 'Rita Ora',
-                  value: 360
-              }, {
-                  name: 'Serena Williams',
-                  value: 282
-              }, {
-                  name: 'NCAA baseball tournament',
-                  value: 273
-              }, {
-                  name: 'Point Break',
-                  value: 265
-              }]
+              data: this.option11_data
           }]
       };
   }

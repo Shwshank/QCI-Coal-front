@@ -13,6 +13,7 @@ export class Section2Component implements OnInit {
   sub1: any;
   sub2: any;
   sub3: any;
+  month: any = '2017-11';
 
   option7_data1: any;
   option7_data2: any;
@@ -30,6 +31,8 @@ export class Section2Component implements OnInit {
 
     this.sub3 = this.projectService.emitOption7_data3.subscribe(res=>{
       this.option7_data3 = res;
+
+      this.getGraph1();
     });
 
     // this.option7_data1 = ['12a', '1a', '2a', '3a', '4a', '5a', '6a',
@@ -47,8 +50,12 @@ export class Section2Component implements OnInit {
   }
 
   ngOnInit() {
-    this.projectService.getData2();
-    this.getGraph1();
+    this.projectService.getTempDataTower();
+    // this.getGraph1();
+  }
+
+  newMonth() {
+    console.log(this.month);
   }
 
   getGraph1() {
@@ -62,7 +69,7 @@ export class Section2Component implements OnInit {
           formatter: "{c}"
         },
         visualMap: {
-            max: 20,
+            max: 15500,
             inRange: {
                 color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
             }
@@ -72,8 +79,9 @@ export class Section2Component implements OnInit {
             data: hours
         },
         yAxis3D: {
-            type: 'category',
-            data: days
+            type: 'value',
+            data: days,
+            splitNumber: 15
         },
         zAxis3D: {
             type: 'value'

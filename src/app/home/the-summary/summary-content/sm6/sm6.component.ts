@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../../../../service/ProjectService';
 
 @Component({
   selector: 'app-sm6',
@@ -7,17 +8,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Sm6Component implements OnInit {
 
-  option1: any;
+  option9: any;
+  option9_data: any;
+  option9_legends: any;
+  color: any;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) {
+      this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
+      // this.projectService.emitOption8_data.subscribe(res=>{
+      //   this.option9_data = res;
+      // });
+
+      this.projectService.emitPSUData.subscribe((res)=>{
+
+        this.option9_data = res.data[res.id].graph1.data1;
+        this.option9_legends = res.data[res.id].graph1.legends;
+        this.getGraph1();
+      });
+
+  }
 
   ngOnInit() {
-    this.getGraph1();
+    // this.projectService.getData4();
+    // this.getGraph1();
   }
 
   getGraph1() {
-    this.option1 = {
+    //var piePatternSrc = 'https://cdn3.iconfinder.com/data/icons/files-2/512/sign_contract_file-512.png';
+    let piePatternSrc = 'https://us.123rf.com/450wm/carmendorin/carmendorin1308/carmendorin130800202/21689191-grunge-rubber-stamp-with-word-challenge-vector-illustration.jpg?ver=6';
+    let bgPatternSrc = 'https://thumbs.dreamstime.com/b/old-book-page-17819080.jpg';
 
+    let piePatternImg = new Image();
+    piePatternImg.src = piePatternSrc;
+    let bgPatternImg = new Image();
+    bgPatternImg.src = bgPatternSrc;
+
+    let itemStyle = {
+        normal: {
+            opacity:0.7,
+            color: {
+                image: piePatternImg,
+                repeat: 'repeat'
+            },
+            borderWidth: 3,
+            borderColor: '#235894'
+        }
+    };
+
+    this.option9 = {
+
+          color: this.color,
           title: {
               // text: 'Customized Pie',
               left: 'center',
@@ -26,58 +66,61 @@ export class Sm6Component implements OnInit {
                   color: 'white'
               }
           },
-
+          // legend: {
+          //     // orient: 'vertical',
+          //     // x: 'left',
+          //     data:this.option9_legends
+          // },
           tooltip : {
               trigger: 'item',
               formatter: "{a} <br/>{b} : {c} ({d}%)"
           },
+          grid: {
 
+              right: '1%',
+              bottom: '23%',
+              containLabel: true
+          },
           visualMap: {
               show: false,
               min: 80,
               max: 600,
               inRange: {
-                  colorLightness: [0, 1]
+                  // colorLightness: [0, 1]
               }
           },
           series : [
-              {
-                  name:'访问来源',
+              {   itemStyle: itemStyle,
+                  name:'ch',
                   type:'pie',
-                  radius : '95%',
+                  radius : '76%',
                   center: ['50%', '50%'],
-                  data:[
-                      {value:335, name:'1'},
-                      {value:310, name:'2'},
-                      {value:274, name:'3'},
-                      {value:235, name:'4'},
-                      {value:400, name:'5'}
-                  ].sort(function (a, b) { return a.value - b.value; }),
-                  roseType: 'radius',
-                  label: {
-                      normal: {
-                          textStyle: {
-                              color: 'black'
-                          }
-                      }
-                  },
+                  data:this.option9_data,
+                  // roseType: 'radius',
+                  // itemStyle: {
+                  //   borderWidth: 1,
+                  //   borderColor: '#FFF'
+                  // },
+
                   labelLine: {
                       normal: {
+
                           lineStyle: {
-                              // color: 'rgba(255, 255, 255, 0.3)'
+
+                              color: '#235894'
                           },
-                          smooth: 0.2,
-                          length: 10,
-                          length2: 20
+                          smooth: .2,
+                          // length: 10,
+                          // length2: 20
                       }
                   },
-                  itemStyle: {
-                      normal: {
-                          color: '#c23531',
-                          shadowBlur: 200,
-                          shadowColor: 'rgba(0, 0, 0, 0.5)'
-                      }
-                  },
+                  // itemStyle: {
+                  //     normal: {
+                  //         color: '#0075d9',
+                  //         // shadowBlur: 200,
+                  //         shadowColor: 'rgba(0, 0, 0, 0.5)'
+                  //     }
+                  // },
 
                   animationType: 'scale',
                   animationEasing: 'elasticOut',

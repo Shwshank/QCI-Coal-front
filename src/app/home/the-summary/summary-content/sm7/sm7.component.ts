@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../../../../service/ProjectService';
 
 @Component({
   selector: 'app-sm7',
@@ -7,12 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Sm7Component implements OnInit {
 
-  option1: any;
+  option10: any;
+  option10_data: any;
+  signed: any;
+  lifted: any;
+  data: any;
 
-  constructor() { }
+  constructor(private projectService: ProjectService) {
+    // this.projectService.emitOption10_data.subscribe(res=>{
+    //   this.option10_data  = res;
+    // });
+
+    this.projectService.emitPSUData.subscribe((res)=>{
+      // console.log(res.data);
+
+      this.signed = res.data[res.id].vol[0][1];
+      this.lifted = res.data[res.id].vol[1][1];
+
+      this.option10_data = [(this.lifted/this.signed)];
+      console.log(this.option10_data);
+      this.getGraph1();
+    });
+
+  }
 
   ngOnInit() {
-    this.getGraph1();
+    this.projectService.getData5();
   }
 
   getGraph1() {
@@ -37,7 +58,7 @@ export class Sm7Component implements OnInit {
         }
     };
 
-    this.option1 = {
+    this.option10 = {
 
       series: [{
             outline: {
@@ -50,7 +71,7 @@ export class Sm7Component implements OnInit {
             },
             type: 'liquidFill',
             radius: '80%',
-            data: [0.5, 0.4, 0.3],
+            data: this.option10_data,
             label: {
                 normal: {
                         color: '#da534e',
