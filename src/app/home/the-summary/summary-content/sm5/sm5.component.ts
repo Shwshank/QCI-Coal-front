@@ -84,9 +84,9 @@ export class Sm5Component implements OnInit {
                         color: 'white'
                     }
                 },
-                  name:'11',
+                  name:'Delay',
                   type:'pie',
-                  radius : '85%',
+                  radius : ['50%','80%'],
                   center: ['50%', '50%'],
                   data:this.option8_data,
                   // roseType: 'radius',
@@ -112,7 +112,6 @@ export class Sm5Component implements OnInit {
                           length2: 2
                       }
                   },
-                  itemStyle: itemStyle,
 
                   animationType: 'scale',
                   animationEasing: 'elasticOut',

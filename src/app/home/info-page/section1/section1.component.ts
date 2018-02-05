@@ -225,7 +225,7 @@ export class Section1Component implements OnInit {
 
     this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
 
-    this.color1 = ['#e91e63','#009688','#da534e','#8bc34a','#ff9800','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8'];
+    this.color1 = ['#e91e63','#009688','#da534e','#8bc34a','#ff9800','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979'];
 
     // this.getGraph2();
     // this.getGraph3();
@@ -260,7 +260,8 @@ export class Section1Component implements OnInit {
         {
             orient: 'vertical',
             x: 'right',
-            data:['Rail',"Road"]
+            data:['Road','Rail']
+            
         }],
         series: [
             {

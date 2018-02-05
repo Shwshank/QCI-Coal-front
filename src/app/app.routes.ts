@@ -26,14 +26,14 @@ export const routes: Routes = [
       { path: 'tracker', component: TheTableComponent, canActivate: [AuthGuard]},
       { path: 'contract', component: TheContractComponent, canActivate: [AuthGuard]},
       { path: 'upload', component: TheUploadComponent, canActivate: [AuthGuard]},
-      { path: 'summary', component: TheSummaryComponent, canActivate: [AuthGuard],
+      { path: 'summary', component: TheSummaryComponent,
         children: [
           { path: 'psusummary', component: SummaryContentComponent, children: [
-            { path: 'sm1', component: Sm1Component, canActivate: [AuthGuard] },
-            { path: 'sm2', component: Sm2Component, canActivate: [AuthGuard] },
-            { path: 'sm3', component: Sm3Component, canActivate: [AuthGuard] },
-            { path: 'sm4', component: Sm4Component, canActivate: [AuthGuard] },
-            { path: 'sm5', component: Sm5Component, canActivate: [AuthGuard] },
+            { path: 'sm1', component: Sm1Component},
+            { path: 'sm2', component: Sm2Component},
+            { path: 'sm3', component: Sm3Component},
+            { path: 'sm4', component: Sm4Component},
+            { path: 'sm5', component: Sm5Component},
           ]
           }
         ]

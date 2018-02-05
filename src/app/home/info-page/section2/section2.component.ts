@@ -50,12 +50,14 @@ export class Section2Component implements OnInit {
   }
 
   ngOnInit() {
-    this.projectService.getTempDataTower();
+    this.newMonth();
+    // this.projectService.getTempDataTower();
     // this.getGraph1();
   }
 
   newMonth() {
     console.log(this.month);
+    this.projectService.newMonth(this.month);
   }
 
   getGraph1() {
@@ -65,8 +67,9 @@ export class Section2Component implements OnInit {
     let data = this.option7_data3;
     this.options = {
         tooltip: {
-          trigger: 'item',
-          formatter: "{c}"
+          // trigger: 'item',
+          // formatter: "{c}"
+          // formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
         visualMap: {
             max: 15500,
@@ -76,19 +79,23 @@ export class Section2Component implements OnInit {
         },
         xAxis3D: {
             type: 'category',
-            data: hours
+            data: hours,
+            name:"Location"
         },
         yAxis3D: {
             type: 'value',
             data: days,
-            splitNumber: 15
+            splitNumber: 30,
+            name:"Day"
         },
         zAxis3D: {
-            type: 'value'
+            type: 'value',
+            splitNumber: 10,
+            name:"Volume"
         },
         grid3D: {
             boxWidth: 200,
-            boxDepth: 80,
+            boxDepth: 180,
             light: {
                 main: {
                     intensity: 1.2

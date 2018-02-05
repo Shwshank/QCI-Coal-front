@@ -4,8 +4,8 @@ import { EventEmitter, Injectable } from '@angular/core';
 @Injectable()
 export class APIService {
 
-  projectURL: string = 'http://192.168.15.187:8000';
-  // projectURL: string = 'http://qcitech.org:8081';
+  // projectURL: string = 'http://192.168.15.187:8000';
+  projectURL: string = 'http://qcitech.org:8081';
 
   constructor( private http: Http, ) {}
 
@@ -69,4 +69,9 @@ export class APIService {
     return this.http.get(this.projectURL+'/getLocationWiseMonthLifting').map(res=>res.json());
   }
 
+  NewMonth(month) {
+    let formData = new FormData();
+    formData.append('month', month);
+    return this.http.post(this.projectURL+'/getLocationWiseMonthLifting', formData).map(res=>res.json());
+  }
 }

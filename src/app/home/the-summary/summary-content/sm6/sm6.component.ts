@@ -73,7 +73,7 @@ export class Sm6Component implements OnInit {
           // },
           tooltip : {
               trigger: 'item',
-              formatter: "{a} <br/>{b} : {c} ({d}%)"
+              formatter: "{b} : {c} ({d}%)"
           },
           grid: {
 
@@ -91,7 +91,7 @@ export class Sm6Component implements OnInit {
           },
           series : [
               {   itemStyle: itemStyle,
-                  name:'ch',
+                  
                   type:'pie',
                   radius : '76%',
                   center: ['50%', '50%'],

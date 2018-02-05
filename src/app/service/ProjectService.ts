@@ -293,6 +293,18 @@ export class ProjectService {
     }]);
   }
 
+  newMonth(month){
+      this.APIService.NewMonth(month).subscribe(res=>{
+        console.log(res);
+
+        this.emitOption7_data1.emit(res.y);
+        this.emitOption7_data2.emit(res.x);
+        this.emitOption7_data3.emit(res.z);
+
+      }, err=>{
+        console.log(err);
+      })
+  }
 
   internetConnection() {
 
