@@ -18,7 +18,7 @@ import { D3SunBrustComponent } from './home/the-summary/summary-content/d3-sun-b
 
 
 export const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo:'/login' },
+  { path: '', pathMatch: 'full', redirectTo:'/home' },
   { path: 'login', component: LoginComponent },
   { path: 'd3-sun-brust', component: D3SunBrustComponent },
   { path: 'home', component: HomeComponent,
