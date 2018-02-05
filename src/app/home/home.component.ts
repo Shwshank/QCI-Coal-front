@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   newEmail: any;
   justamoment = false;
   passwordmsg: any;
+  loggedIn = false;
 
   constructor(private route: ActivatedRoute, private router: Router,
     private ProjectService: ProjectService, public toastr: ToastsManager, vcr: ViewContainerRef) {
@@ -75,6 +76,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    if(localStorage.getItem('login')=='true1') {
+      this.loggedIn = true;
+    } else {
+      this.loggedIn = false;
+    }
 
     // Get Contract api
     this.ProjectService.getContract(1);
