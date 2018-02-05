@@ -91,6 +91,11 @@ export class Sm4Component implements OnInit {
   }
 
   ngOnInit() {
+    if(localStorage.getItem('sunbrust')){
+
+    } else {
+      window.location.reload();
+    }
   }
 
 

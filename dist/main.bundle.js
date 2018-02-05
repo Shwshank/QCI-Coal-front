@@ -1840,6 +1840,11 @@ var Sm4Component = (function () {
         });
     }
     Sm4Component.prototype.ngOnInit = function () {
+        if (localStorage.getItem('sunbrust')) {
+        }
+        else {
+            window.location.reload();
+        }
     };
     return Sm4Component;
 }());
