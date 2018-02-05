@@ -16,6 +16,7 @@ import { Sm5Component } from './home/the-summary/summary-content/sm5/sm5.compone
 import { LoginComponent } from './login/login.component';
 import { D3SunBrustComponent } from './home/the-summary/summary-content/d3-sun-brust/d3-sun-brust.component';
 
+
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo:'/login' },
   { path: 'login', component: LoginComponent },
