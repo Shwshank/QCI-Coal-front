@@ -5,7 +5,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 export class APIService {
 
   // projectURL: string = 'http://192.168.15.187:8000';
-  projectURL: string = 'http://qcitech.org:8081';
+  projectURL: string = 'https://qcitech.org:8081';
 
   constructor( private http: Http, ) {}
 
