@@ -69,9 +69,11 @@ export class APIService {
     return this.http.get(this.projectURL+'/getLocationWiseMonthLifting').map(res=>res.json());
   }
 
-  NewMonth(month) {
+  NewMonth(month, id, name) {
     let formData = new FormData();
     formData.append('month', month);
+    formData.append('id', id);
+    formData.append('name', name);
     return this.http.post(this.projectURL+'/getLocationWiseMonthLifting', formData).map(res=>res.json());
   }
 }

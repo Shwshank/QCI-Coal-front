@@ -9,7 +9,7 @@ import { ProjectService } from '../../../service/ProjectService';
 export class Section2Component implements OnInit {
 
   options: any;
-
+  PSUArray:any = [];
   sub1: any;
   sub2: any;
   sub3: any;
@@ -18,8 +18,14 @@ export class Section2Component implements OnInit {
   option7_data1: any;
   option7_data2: any;
   option7_data3: any;
+  PSUid: any=0;
+  PSUname: any="All";
 
   constructor(private projectService: ProjectService) {
+
+    let temp = localStorage.getItem('psuidname');
+    temp = JSON.parse(temp);
+    this.PSUArray = temp;
 
     this.sub1 = this.projectService.emitOption7_data1.subscribe(res=>{
       console.log(res);
@@ -47,7 +53,21 @@ export class Section2Component implements OnInit {
 
   newMonth() {
     console.log(this.month);
-    this.projectService.newMonth(this.month);
+    console.log(this.PSUid);
+    console.log(this.PSUname);
+
+    this.projectService.newMonth(this.month, this.PSUid, this.PSUname);
+  }
+
+  newPsu(id, name) {
+    this.PSUid = id;
+    this.PSUname = name;
+
+    console.log(this.month);
+    console.log(this.PSUid);
+    console.log(this.PSUname);
+
+    this.projectService.newMonth(this.month, this.PSUid, this.PSUname);
   }
 
   getGraph1() {

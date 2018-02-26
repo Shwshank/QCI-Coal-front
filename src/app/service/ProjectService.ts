@@ -293,8 +293,8 @@ export class ProjectService {
     }]);
   }
 
-  newMonth(month){
-      this.APIService.NewMonth(month).subscribe(res=>{
+  newMonth(month, id, name){
+      this.APIService.NewMonth(month, id, name).subscribe(res=>{
         console.log(res);
 
         this.emitOption7_data1.emit(res.y);

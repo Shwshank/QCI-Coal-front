@@ -138,100 +138,14 @@ export class Section1Component implements OnInit {
         this.getGraph6();
     });
 
-    // this.option1_legends = ['1','2','3','4','5'];
-    // this.option1_data1 = [ {value:335, name:'1'}, {value:679, name:'2'}, {value:1548, name:'3'}];
-    // this.option1_data2 = [ {value:335, name:'a1'}, {value:310, name:'a2'}, {value:234, name:'a3'}, {value:135, name:'4'}, {value:1048, name:'5'}, {value:251, name:'6'}, {value:147, name:'7'}, {value:102, name:'8'}]
-
-    // this.option2_tableData = [
-    //   {sub:"CCL",  contract:"40", rail:'211', road:'21', volume:"440"},
-    //   {sub:"MCL",  contract:"40", rail:'211', road:'21', volume:"440"},
-    //   {sub:"NCL",  contract:"21", rail:'211', road:'21', volume:"120"},
-    //   {sub:"SECL", contract:"36", rail:'211', road:'21', volume:"444"},
-    //   {sub:"WCL",  contract:"14", rail:'211', road:'21', volume:"344"},
-    // ];
-
-    // this.option3_legends = ['1','2','3'];
-    // this.option3_data1 = [ {value:335, name:'1'}, {value:679, name:'2'}, {value:1548, name:'3'}];
-    // this.option3_data2 = [ {value:335, name:'a1'}, {value:310, name:'a2'}, {value:234, name:'a3'}, {value:135, name:'4'}, {value:1048, name:'5'}, {value:251, name:'6'}, {value:147, name:'7'}, {value:102, name:'8'}]
-
-    // this.option4_legends = ['CCL','MCL','NCL'];
-    // this.option4_xAxis = ['data1','data2','data3','data4','data5'];
-    // this.option4_series = [
-    //     {
-    //         name:'CCL',
-    //         type:'bar',
-    //         data:[320, 332, 301, 334, 390, 330, 320]
-    //     },
-    //     {
-    //         name:'MCL',
-    //         type:'bar',
-    //         data:[120, 132, 101, 134, 90, 230, 210]
-    //     },
-    //     {
-    //         name:'NCL',
-    //         type:'bar',
-    //         data:[220, 182, 191, 234, 290, 330, 310]
-    //     },
-    // ]
-
-    // this.option5_legends = ['A', 'B', 'C'];
-    // this.option5_data = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
-    // this.option5_series = [
-    //     {
-    //       type: 'bar',
-    //       data: [1, 2, 3, 4, 3, 5, 1],
-    //       coordinateSystem: 'polar',
-    //       name: 'A',
-    //       stack: 'a'
-    //   }, {
-    //       type: 'bar',
-    //       data: [2, 4, 6, 1, 3, 2, 1],
-    //       coordinateSystem: 'polar',
-    //       name: 'B',
-    //       stack: 'a'
-    //   }, {
-    //       type: 'bar',
-    //       data: [1, 2, 3, 4, 1, 2, 5],
-    //       coordinateSystem: 'polar',
-    //       name: 'C',
-    //       stack: 'a'
-    //   }
-    // ]
-
-    // this.option6_legends = ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎','百度','谷歌','必应','其他'];
-    // this.option6_xAxis = ['周一','周二','周三','周四','周五'];
-    // this.option6_series = [
-    //
-    //     {
-    //         name:'邮件营销',
-    //         type:'bar',
-    //         stack: '广告',
-    //         data:[120, 132, 101, 134, 90]
-    //     },
-    //     {
-    //         name:'联盟广告',
-    //         type:'bar',
-    //         stack: '广告',
-    //         data:[220, 182, 191, 234, 290]
-    //     },
-    //
-    // ];
-
   }
 
   ngOnInit() {
-    // this.projectService.getData();
     this.projectService.getTempData();
 
     this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
 
     this.color1 = ['#e91e63','#009688','#da534e','#8bc34a','#ff9800','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979','#0274d8','#797979'];
-
-    // this.getGraph2();
-    // this.getGraph3();
-    // this.getGraph4();
-    // this.getGraph5();
-    // this.getGraph6();
 
   }
 
@@ -261,7 +175,7 @@ export class Section1Component implements OnInit {
             orient: 'vertical',
             x: 'right',
             data:['Road','Rail']
-            
+
         }],
         series: [
             {
@@ -272,6 +186,7 @@ export class Section1Component implements OnInit {
 
                 label: {
                     normal: {
+                        show: false,
                         position: 'inner'
                     }
                 },
@@ -341,6 +256,7 @@ export class Section1Component implements OnInit {
 
                 label: {
                     normal: {
+                        show: false,  
                         position: 'inner'
                     }
                 },

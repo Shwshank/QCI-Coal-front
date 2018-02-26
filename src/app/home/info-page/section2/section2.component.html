@@ -3,11 +3,22 @@
     <div class="row justify-content-center">
       <div class="col-10 cubeGraph" data-aos="fade-up"  data-aos-delay="200" >
         <div class="text-center heading" > Location Wise Monthly Lifted &nbsp; &nbsp; &nbsp;
-
-      <span>    <input id="month" type="month" class="form-control form-control-2 input-sm to" (change)="newMonth()" [(ngModel)]="month" style="text-center" min="2017-08"> </span>
+        <br>
+      <span style="width:50%; float:left" >   <input type="month" class="form-control form-control-2 input-sm to" (change)="newMonth()" [(ngModel)]="month" style="text-center" min="2017-08"> </span>
+      <span style="width:50%; float:left" >
+        <div class="dropdown">
+          <div style="width:100%; height:42px;"  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Select subsidiary - {{PSUname}}
+          </div>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width:100%" >
+            <a  *ngFor='let psu of PSUArray' class="dropdown-item text-center"  (click)="newPsu(psu._id, psu.name)">{{psu.name}}</a>
+          </div>
+        </div>
+      </span>
 
        </div>
-      <div echarts [options]="options" class="demo-chart" style="width:99%; height:90%"  data-aos="fade-up"  data-aos-delay="700" ></div>
+       <br><br>
+      <div echarts [options]="options" class="demo-chart" style="width:99%; height:88%"  data-aos="fade-up"  data-aos-delay="700" ></div>
       </div>
     </div>
   </div>

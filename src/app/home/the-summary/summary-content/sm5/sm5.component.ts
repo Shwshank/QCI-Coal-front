@@ -53,7 +53,10 @@ export class Sm5Component implements OnInit {
     };
     this.option8 = {
 
-
+      itemStyle: {
+        borderWidth: 10,
+        borderColor: '#FFF'
+      },
 
           tooltip : {
               trigger: 'item',

@@ -14,7 +14,7 @@ export class Sm6Component implements OnInit {
   color: any;
 
   constructor(private projectService: ProjectService) {
-      this.color = ['#0274d8','#da534e','#8bc34a','#ff9800','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
+      this.color = ['#da534e','#8bc34a','#ff9800','#0274d8','#797979','#e91e63','#009688','#3f51b5','#795548','#673ab7','#9c27b0'];
       // this.projectService.emitOption8_data.subscribe(res=>{
       //   this.option9_data = res;
       // });
@@ -45,6 +45,7 @@ export class Sm6Component implements OnInit {
 
     let itemStyle = {
         normal: {
+
             opacity:0.7,
             color: {
                 image: piePatternImg,
@@ -56,79 +57,77 @@ export class Sm6Component implements OnInit {
     };
 
     this.option9 = {
+      itemStyle: {
+        borderWidth: 10,
+        borderColor: '#FFF'
+      },
 
-          color: this.color,
-          title: {
-              // text: 'Customized Pie',
-              left: 'center',
-              top: 10,
-              textStyle: {
-                  color: 'white'
-              }
-          },
-          // legend: {
-          //     // orient: 'vertical',
-          //     // x: 'left',
-          //     data:this.option9_legends
-          // },
-          tooltip : {
-              trigger: 'item',
-              formatter: "{b} : {c} ({d}%)"
-          },
-          grid: {
+                tooltip : {
+                    trigger: 'item',
+                    formatter: "{a} <br/>{b} : {c} ({d}%)"
+                },
 
-              right: '1%',
-              bottom: '23%',
-              containLabel: true
-          },
-          visualMap: {
-              show: false,
-              min: 80,
-              max: 600,
-              inRange: {
-                  // colorLightness: [0, 1]
-              }
-          },
-          series : [
-              {   itemStyle: itemStyle,
-                  
-                  type:'pie',
-                  radius : '76%',
-                  center: ['50%', '50%'],
-                  data:this.option9_data,
-                  // roseType: 'radius',
-                  // itemStyle: {
-                  //   borderWidth: 1,
-                  //   borderColor: '#FFF'
-                  // },
+                visualMap: {
+                    show: false,
+                    min: -220,
+                    max: 3000,
+                    inRange: {
+                        // colorLightness: [0, 1]
+                    }
+                },
+                legend: {
+                  // orient: 'vertical',
+                  // x: 'left',
+                  data:this.option9_legends
+                },
+                    series : [
+                        {
+                          title: {
 
-                  labelLine: {
-                      normal: {
-
-                          lineStyle: {
-
-                              color: '#235894'
+                              left: 'center',
+                              top: 10,
+                              textStyle: {
+                                  color: 'white'
+                              }
                           },
-                          smooth: .2,
-                          // length: 10,
-                          // length2: 20
-                      }
-                  },
-                  // itemStyle: {
-                  //     normal: {
-                  //         color: '#0075d9',
-                  //         // shadowBlur: 200,
-                  //         shadowColor: 'rgba(0, 0, 0, 0.5)'
-                  //     }
-                  // },
+                            name:'Refree Challenge',
+                            selectedMode: 'single',
+                            selectedOffset: 30,
+                            type:'pie',
+                            radius : '76%',
+                            center: '50%',
+                            data:this.option9_data,
+                            // roseType: 'radius',
+                            label: {
+                              show: false,
+                                normal: {
+                                  show: false,
+                                    textStyle: {
+                                        color: 'black'
+                                    }
+                                }
+                            },
+                            color: this.color,
+                            labelLine: {
+                              show: false,
+                                normal: {show: false,
+                                    lineStyle: {
+                                      show: false,
+                                        // color: 'rgba(255, 255, 255, 0.3)'
+                                    },
+                                    smooth: 0.2,
+                                    length: 5,
+                                    length2: 2
+                                }
+                            },
 
-                  animationType: 'scale',
-                  animationEasing: 'elasticOut',
-                  animationDelay: function (idx) {
-                      return Math.random() * 200;
-                  }
-              }
-          ]
+                            animationType: 'scale',
+                            animationEasing: 'elasticOut',
+                            animationDelay: function (idx) {
+                                return Math.random() * 200;
+                            }
+                        }
+                    ]
       };
   }
 
